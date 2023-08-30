@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ProductsClientSide from "./components/ProductsClientSide";
 import ProductsServerSide from "./components/ProductsServerSide";
 
