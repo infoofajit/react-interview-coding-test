@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 function Folder({explorer}) {
+  const [expand, setExpand] = useState(false)
+  
   return (
     <>
       {
         explorer?.isFolder ? (
-          <div className="flex items-center bg-gray-200 px-1 mb-1">
+          <div className="flex items-center bg-gray-200 px-1 mb-1" onClick={() => setExpand(!expand)}>
             <svg
               viewBox="0 0 1024 1024"
               fill="currentColor"
@@ -28,7 +32,7 @@ function Folder({explorer}) {
           </div>
         )
       }
-      {explorer?.items?.length ? <div className={`ml-4`}>
+      {explorer?.items?.length ? <div className={`ml-4 ${!expand ? `hidden` : ''}`}>
         {explorer?.items.map((item) => (
           <Folder key={item.id} explorer={item} />
         ))}
