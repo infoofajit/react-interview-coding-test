@@ -6,7 +6,7 @@ function App() {
   const [explorer, setExplorer] = useState(explorerData)
 
   return (
-    <div className="app w-72">
+    <div className="app w-80">
       <Folder explorer={explorer} />
     </div>
   );
