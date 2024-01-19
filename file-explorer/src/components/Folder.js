@@ -10,9 +10,13 @@ function Folder({explorer}) {
     isFile: true,
   })
 
-  const handleAddNewFileFolder = (e, isFile) => {
+  const handleShowNewFileFolder = (e, isFile) => {
     e.stopPropagation()
     setAddNewFileFolder({isHide: false, isFile: isFile})
+  }
+
+  const handleHideNewFileFolder = () => {
+    setAddNewFileFolder({...addNewFileFolder, isHide: true})
   }
   
   return (
@@ -25,12 +29,12 @@ function Folder({explorer}) {
                 <FolderIcon />
                 <span>{explorer.name}</span>
               </div>
-              <FolderAction handleAddNewFileFolder={handleAddNewFileFolder} />
+              <FolderAction handleShowNewFileFolder={handleShowNewFileFolder} />
             </div>
             {!addNewFileFolder?.isHide && (
               <div className="flex items-center px-1 mb-1">
                 {addNewFileFolder.isFile ? <FileIcon /> : <FolderIcon />}
-                <input type="text" name="" autoFocus className="border border-black rounded px-1" />
+                <input type="text" name="" autoFocus onBlur={() => handleHideNewFileFolder()} className="border border-black rounded px-1" />
               </div>
             )}
           </>
