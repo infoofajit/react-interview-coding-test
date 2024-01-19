@@ -4,8 +4,8 @@ import ProductsServerSide from "./components/ProductsServerSide";
 function App() {
   return (
     <div className="App">
-      <ProductsServerSide />
       <ProductsClientSide />
+      <ProductsServerSide />
     </div>
   );
 }
